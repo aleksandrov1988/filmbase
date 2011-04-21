@@ -1,0 +1,15 @@
+%h1 Вход
+=form_tag session_path do
+  .field
+    =label_tag :login,t('activerecord.attributes.user.login')
+    %br
+    =text_field_tag :login
+  .field
+    =label_tag :password,t('activerecord.attributes.user.password')
+    %br
+    =password_field_tag :password
+  .field
+    =check_box_tag :remember_me,1,@remember_me
+    =label_tag :remember_me,"Запомнить меня"
+  .actions
+    =submit_tag "Войти"

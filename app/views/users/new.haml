@@ -1,0 +1,27 @@
+%h1 Регистрация нового пользователя
+-@user.password = @user.password_confirmation = nil
+-if @user.errors.any?
+  .msg.error
+    %h2 При сохранении пользователя произошли ошибки
+    %ul
+      -@user.errors.full_messages.each do |msg|
+        %li=msg
+=form_for @user,:url=>users_path do |f|
+  .field
+    =f.label :login
+    %br
+    =f.text_field :login
+  .field
+    =f.label :email
+    %br
+    =f.text_field :email
+  .field
+    =f.label :password
+    %br
+    =f.password_field :password
+  .field
+    =f.label :password_confirmation
+    %br
+    =f.password_field :password_confirmation
+  .actions
+    =f.submit

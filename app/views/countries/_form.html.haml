@@ -1,0 +1,12 @@
+= form_for @country do |f|
+  -if @country.errors.any?
+    .msg.error
+      %h2= "При сохранении произошли ошибки"
+      %ul
+        - @country.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit

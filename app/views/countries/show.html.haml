@@ -1,0 +1,6 @@
+%p
+  %b="#{Country.human_attribute_name(:name)}:"
+  = @country.name
+= link_to 'Редактировать', edit_country_path(@country)
+\|
+= link_to 'Назад', countries_path

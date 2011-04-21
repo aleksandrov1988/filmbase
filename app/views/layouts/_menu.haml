@@ -1,0 +1,6 @@
+#menu.box
+  %ul.box
+    %li#menu-active=link_to content_tag(:span,"Lores ipsum"),"#"
+    -if @current_user && @current_user.admin?
+      %li=link_to content_tag(:span,"Страны"),countries_path
+    %li=link_to content_tag(:span,"Lores ipsum"),"#"

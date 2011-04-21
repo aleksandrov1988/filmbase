@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  origin_name: MyString
+  slogan: MyText
+  country_id: 1
+  director: 1
+  length: 1
+
+two:
+  name: MyString
+  origin_name: MyString
+  slogan: MyText
+  country_id: 1
+  director: 1
+  length: 1

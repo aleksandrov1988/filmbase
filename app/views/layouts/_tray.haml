@@ -1,0 +1,15 @@
+#tray.box
+  %p.box.f-left
+    -if @current_user
+      Роль:
+      %strong=@current_user.human_role
+  %p.f-right
+    -if @current_user
+      Вы:
+      %strong=@current_user.login
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      %strong=link_to "Выход",logout_path,:id=>"logout"
+    -else
+      %strong=link_to "Регистрация",signup_path
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      %strong=link_to "Вход",login_path,:id=>"login"
