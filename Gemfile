@@ -10,6 +10,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'paperclip'
 
 # Use unicorn as the web server
 # gem 'unicorn'

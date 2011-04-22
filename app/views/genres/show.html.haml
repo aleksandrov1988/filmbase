@@ -1,0 +1,6 @@
+%p
+  %b=Genre.human_attribute_name(:name)
+  = @genre.name
+= link_to 'Редактировать', edit_genre_path(@genre)
+\|
+= link_to 'Назад', genres_path

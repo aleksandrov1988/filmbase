@@ -3,4 +3,5 @@
     %li#menu-active=link_to content_tag(:span,"Lores ipsum"),"#"
     -if @current_user && @current_user.admin?
       %li=link_to content_tag(:span,"Страны"),countries_path
-    %li=link_to content_tag(:span,"Lores ipsum"),"#"
+      %li=link_to content_tag(:span,"Жанры"),genres_path
+      %li=link_to content_tag(:span,"Персоны"),people_path

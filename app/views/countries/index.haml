@@ -11,6 +11,6 @@
         %td=link_to country.name,country
         %td= link_to 'Редактировать', edit_country_path(country)
         %td= link_to 'Удалить', country, :confirm => 'Вы уверены?', :method => :delete
-=paginate @countries
+=paginate(@countries)
 %br
 = link_to 'Добавить', new_country_path

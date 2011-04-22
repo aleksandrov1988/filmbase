@@ -5,6 +5,7 @@ class CreateFilms < ActiveRecord::Migration
       t.string :origin_name
       t.text :slogan
       t.integer :country_id
+      t.integer :genre_id
       t.integer :director
       t.integer :length
 

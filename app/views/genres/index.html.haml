@@ -1,0 +1,18 @@
+%h1 Жанры
+
+%table
+  %thead
+    %tr
+      %th=Genre.human_attribute_name('name')
+      %th
+      %th
+  %tbody
+    - @genres.each do |genre|
+      %tr
+        %td=link_to genre.name,genre
+        %td= link_to 'Редактировать', edit_genre_path(genre)
+        %td= link_to 'Удалить', genre, :confirm => 'Вы уверены?', :method => :delete
+
+%br
+
+= link_to 'Добавить жанр', new_genre_path

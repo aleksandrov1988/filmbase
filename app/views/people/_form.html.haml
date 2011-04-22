@@ -1,0 +1,32 @@
+= form_for @person,:html=>{:multipart=>true} do |f|
+  -if @person.errors.any?
+    .msg.error
+      %h2= "При сохранении персоны произошли ошибки"
+      %ul
+        - @person.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :origin_name
+    %br
+    = f.text_field :origin_name
+  .field
+    = f.label :male
+    %br
+    = f.radio_button :male,"1"
+    Мужской
+    = f.radio_button :male,"0"
+    Женский
+  .field
+    = f.label :birthday
+    %br
+    = f.date_select :birthday
+  .field
+    =f.label :avatar
+    %br
+    =f.file_field :avatar
+  .actions
+    = f.submit

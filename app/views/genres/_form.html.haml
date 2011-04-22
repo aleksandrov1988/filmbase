@@ -1,0 +1,13 @@
+=form_for @genre do |f|
+  -if @genre.errors.any?
+    .msg.error
+      %h2= "При сохранении произошли ошибки"
+      %ul
+        - @genre.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit

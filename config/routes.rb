@@ -1,4 +1,8 @@
 Filmbase::Application.routes.draw do
+  resources :people
+
+  resources :genres
+
   resources :countries
 
   resources :users

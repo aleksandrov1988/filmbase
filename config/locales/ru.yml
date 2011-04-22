@@ -289,6 +289,8 @@ ru:
     models:
       user: "Пользователь"
       country: "Страна"
+      genre: "Жанр"
+      person: "Персона"
     attributes:
       user:
         login: "Имя пользователя"
@@ -298,7 +300,14 @@ ru:
         password_confirmation: "Пароль (повторно)"
       country:
         name: "Название"
-
+      genre:
+        name: "Название"
+      person:
+        name: "Имя"
+        origin_name: "Имя (на английском)"
+        male: "Пол"
+        birthday: "Дата рождения"
+        avatar: "Фото"
   support:
     select:
       prompt: "Выберите: "
