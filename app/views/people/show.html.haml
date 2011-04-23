@@ -1,18 +1,25 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @person.name
-%p
-  %b Origin name:
-  = @person.origin_name
-%p
-  %b Male:
-  = @person.male
-%p
-  %b Birthday:
-  = @person.birthday
-
-= link_to 'Edit', edit_person_path(@person)
-\|
-= link_to 'Back', people_path
+.left=image_tag(@person.avatar? ? @person.avatar.url(:medium) : 'user_medium.png',:alt=>@person.name)
+%div.col
+  %h2=@person.name
+  -unless @person.origin_name.blank?
+    .low.bigger=@person.origin_name
+  %dl
+    %dt=Person.human_attribute_name('male')
+    %dd=@person.sex
+    -unless @person.birthday.blank?
+      %dt=Person.human_attribute_name('birthday')
+      %dd=l @person.birthday,:format=>:long
+    -unless @person.director_films.blank?
+      %dt Режиссер
+      %dd
+        -@person.director_films.each do |film|
+          =render 'films/film',:film=>film
+    -unless @person.films.blank?
+      %dt Роли
+      %dd
+        -@person.films.each do |film|
+          =render 'films/film',:film=>film
+  -if @person.can_be_edited?(@current_user)
+    = link_to 'Редактировать', edit_person_path(@person)
+    \|
+  = link_to 'Назад', people_path

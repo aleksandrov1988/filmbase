@@ -3,3 +3,4 @@ tmp/**/*
 db/schema.rb
 .idea
 db/*.sqlite3
+public/system

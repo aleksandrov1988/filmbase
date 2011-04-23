@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6, address, blockquote, dl, fieldset, ol, p, table, ul {mar
 #content ol {margin:15px 0 15px 30px; list-style-type:decimal;}
 #content ol ol {margin:0 0 0 20px;}
 #content ol ol li {list-style-type:lower-alpha;}
-#content dl {clear:both;}
+/*#content dl {clear:both;}*/
 #content dl dt {font-weight:bold;}
 #content dl dd {margin:0 0 5px 0;}
 #content fieldset {position:relative; margin:10px 0; padding:10px;}

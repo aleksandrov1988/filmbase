@@ -31,3 +31,24 @@
 .field,.actions{
     padding:10px 0;
 }
+
+.left{
+    float:left;
+    padding: 5px 20px 5px 5px;
+}
+.right{
+    float:right;
+}
+.col{
+    overflow:hidden;
+}
+
+.clear{
+    clear:both;
+}
+
+.film,.person{
+    border:1px solid #dedede;
+    padding:3px;
+    margin:2px 0;
+}

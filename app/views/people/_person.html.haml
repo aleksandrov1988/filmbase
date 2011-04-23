@@ -1,0 +1,7 @@
+.person
+  .left=link_to image_tag(person.avatar? ? person.avatar.url(:thumb) : 'user_thumb.png'),person
+  .col
+    =link_to person.name,person
+    -unless person.origin_name.blank?
+      .low=person.origin_name
+  .clear

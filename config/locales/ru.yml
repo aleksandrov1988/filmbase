@@ -291,6 +291,7 @@ ru:
       country: "Страна"
       genre: "Жанр"
       person: "Персона"
+      film: "Фильм"
     attributes:
       user:
         login: "Имя пользователя"
@@ -308,6 +309,18 @@ ru:
         male: "Пол"
         birthday: "Дата рождения"
         avatar: "Фото"
+      film:
+        name: "Название"
+        origin_name: "Оригинальное название"
+        slogan: "Слоган"
+        country_id: "Страна"
+        genre_id: "Жанр"
+        director_id: "Режиссер"
+        length: "Продолжительность"
+        year: "Год создания"
+        cover: "Постер"
+        trailer_url: "Трейлер"
+        description: "Сюжет"
   support:
     select:
       prompt: "Выберите: "

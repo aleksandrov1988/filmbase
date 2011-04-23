@@ -1,0 +1,7 @@
+.film
+  .left=link_to image_tag(film.cover? ? film.cover.url(:thumb) : 'video_thumb.png'),film
+  .col
+    =link_to film.title,film
+    -unless film.origin_name.blank?
+      .low=film.origin_name
+  .clear

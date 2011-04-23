@@ -1,0 +1,39 @@
+%h1=@film.name
+-unless @film.origin_name.blank?
+  %h2=@film.origin_name
+-unless @film.slogan.blank?
+  %em.smaller &laquo;#{@film.slogan}&raquo;
+.left=image_tag(@film.cover? ? @film.cover.url(:medium) : 'video.png',:alt=>@film.name)
+.col
+  %dl
+    %dt=Film.human_attribute_name(:country_id)
+    %dd=@film.country.name
+    %dt=Film.human_attribute_name(:genre_id)
+    %dd=link_to @film.genre.name,@film.genre
+    %dt=Film.human_attribute_name(:director_id)
+    %dd=link_to @film.director.name,@film.director
+    -if @film.year
+      %dt=Film.human_attribute_name(:year)
+      %dd=@film.year
+    -if @film.length
+      %dt=Film.human_attribute_name(:length)
+      %dd
+        =@film.length
+        мин
+    -unless @film.people.blank?
+      %dt В главных ролях
+      %dd
+        -@film.people.each do |person|
+          =render 'people/person',:person=>person
+    -unless @film.description.blank?
+      %dt=Film.human_attribute_name(:description)
+      %dd=@film.description
+    -unless @film.trailer_url.blank?
+      %dt=Film.human_attribute_name(:trailer_url)
+      %dd=show_video(@film.trailer_url)
+  =link_to "К списку фильмов",films_path
+  -if @film.can_be_edited?(@current_user)
+    \|
+    =link_to "Редактировать",edit_film_path(@path)
+    \|
+    =link_to "Удалить",@film,:confirm => "Вы уверены?",:method => :delete

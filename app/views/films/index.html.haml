@@ -1,0 +1,6 @@
+%h1 Фильмы
+-@films.each do |film|
+  =render 'films/film',:film=>film
+=paginate @films
+-if @current_user && @current_user.admin?
+  =link_to "Добавить фильм",new_film_path

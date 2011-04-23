@@ -1,19 +1,7 @@
 %h1 Персоны
-
-%table
-  %tbody
-  - @people.each do |person|
-    %tr{:class=>cycle(nil,"bg")}
-      %td
-        =image_tag person.avatar.url(:thumb),:alt=>person.name
-      %td
-        %div
-          =link_to person.name,person
-          =person.human_sex
-        .low=person.origin_name
-        %div
-          = link_to 'Редактировать', edit_person_path(person)
-          = link_to 'Удалить', person, :confirm => 'Вы уверены?', :method => :delete
+-@people.each do |person|
+  =render "people/person",:person=>person
 =paginate @people
-%br
-= link_to 'Новая персона', new_person_path
+-if @current_user.try(:admin?)
+  %br
+  = link_to 'Новая персона', new_person_path

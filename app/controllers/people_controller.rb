@@ -1,10 +1,19 @@
 class PeopleController < ApplicationController
+  before_filter :check_admin_user, :except => ['show', 'index']
+
   def index
-    @people = Person.page(params[:page])
+    respond_to do |format|
+      format.html{@people = Person.page(params[:page])}
+      format.json do
+         @people=Person.where("lower(name) LIKE lower(?)","%#{params[:q]}%").all
+        render :json=>@people.map(&:attributes)
+      end
+    end
+
   end
 
   def show
-    @person = Person.find(params[:id])
+    @person = Person.includes(:director_films,:films).find(params[:id])
   end
 
   def new
@@ -24,31 +33,18 @@ class PeopleController < ApplicationController
     end
   end
 
-  # PUT /people/1
-  # PUT /people/1.xml
   def update
     @person = Person.find(params[:id])
-
-    respond_to do |format|
-      if @person.update_attributes(params[:person])
-        format.html { redirect_to(@person, :notice => 'Person was successfully updated.') }
-        format.xml { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
-      end
+    if @person.update_attributes(params[:person])
+      redirect_to(@person, :notice => 'Персона сохранена.')
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /people/1
-  # DELETE /people/1.xml
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(people_url) }
-      format.xml { head :ok }
-    end
+    redirect_to people_url, :notice=>"Персона удалена"
   end
 end

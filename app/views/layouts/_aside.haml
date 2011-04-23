@@ -2,10 +2,5 @@
   .padding.box
     %p#logo= link_to image_tag("logo.png", :alt=>"Видео каталог"), root_path
   %ul.box
-    %li=link_to "Lores ipsum","#"
-    %li#submenu-active
-      =link_to "Active page","#"
-      %ul
-        %li=link_to "Lores ipsum","#"
-        %li=link_to "Lores ipsum","#"
-    %li=link_to "Lores ipsum","#"
+    -Genre.all.each do |genre|
+      %li{:id=>genre==@current_genre ? "submenu-active" : nil}=link_to genre.name,genre

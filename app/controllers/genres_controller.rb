@@ -1,12 +1,12 @@
 class GenresController < ApplicationController
-  before_filter :check_admin_user
+  before_filter :check_admin_user,:except => 'show'
 
   def index
     @genres = Genre.all
   end
 
   def show
-    @genre = Genre.find(params[:id])
+    @genre=@current_genre = Genre.includes(:films).find(params[:id])
   end
 
   def new
